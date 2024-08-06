@@ -1,0 +1,8 @@
+
+.snow {
+	height: 100%;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	filter: blur(1px) grayscale(0.2) saturate(1.2) sepia(0.2);
+}

@@ -1,0 +1,91 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>loading</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="fog.css" />
+
+		<div class="progress">
+			<div class="progressBar"></div>
+		</div>
+		
+		
+		<!-- <link rel="stylesheet" href="snow.css" /> -->
+
+
+
+		<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+		<script src="app.js" defer></script>
+		<script src="cursor.js" defer></script>
+		<!-- <script src="snowflakes.js"></script> -->
+	</head>
+	<body>
+		<h1 class="enable_music">Stiskni <strong>mezerník</strong> pro pozastavení hudby</h1>
+		<!-- <h1 class="progText">Načítání <strong>Serveru</strong>...</h1> -->
+
+		<img id="cursor" src="./cursor.png" />
+		<img src="images/logo.png" alt="Logo" class="logo"> 
+
+		<div class="fogwrapper">
+			<div id="foglayer_01" class="fog">
+				<div class="image01"></div>
+				<div class="image02"></div>
+			</div>
+			<div id="foglayer_02" class="fog">
+				<div class="image01"></div>
+				<div class="image02"></div>
+			</div>
+			<div id="foglayer_03" class="fog">
+				<div class="image01"></div>
+				<div class="image02"></div>
+			</div>
+
+			<div id="foglayer_01" class="fog">
+				<div class="image01"></div>
+				<div class="image02"></div>
+			</div>
+			<div id="foglayer_02" class="fog">
+				<div class="image01"></div>
+				<div class="image02"></div>
+			</div>
+			<div id="foglayer_03" class="fog">
+				<div class="image01"></div>
+				<div class="image02"></div>
+			</div>
+		</div>
+
+		<!-- <canvas class="snow"></canvas> -->
+
+		<div class="progress"></div>
+
+
+		<audio id="music" src="music/music.mp3" autoplay="true" hidden="true" loop="true"></audio>
+
+		<script>
+			var play = true;
+			var myAudio = document.getElementById("music");
+			var musicToggleText = document.querySelector("h1.enable_music");
+			myAudio.volume = 0.1;
+			function onKeyDown(event) {
+				switch (event.keyCode) {
+					case 32: // SpaceBar
+						if (play) {
+							myAudio.pause();
+							play = false;
+							musicToggleText.innerHTML = 'Stiskni <strong>mezerník</strong> pro přehrání hudby';
+						} else {
+							myAudio.play();
+							play = true;
+							musicToggleText.innerHTML = 'Stiskni <strong>mezerník</strong> pro pozastavení hudby';
+						}
+						break;
+				}
+				return false;
+			}
+			window.addEventListener("keydown", onKeyDown, false);
+		</script>
+	</body>
+</html>
